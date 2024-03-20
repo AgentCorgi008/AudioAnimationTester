@@ -1,0 +1,11 @@
+.vscode
+tl
+saves
+images
+errors.txt
+log.txt
+traceback.txt
+cache
+*.rpyc
+*.rpy.bak
+*.rpyс.bak
