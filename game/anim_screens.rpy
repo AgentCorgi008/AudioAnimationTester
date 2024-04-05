@@ -4,6 +4,12 @@ screen anims(anim):
 
     text "[anim.name]" size 40 color "#ffffff" offset(10, 10)
 
+    if config.developer:
+        button:
+            xysize(1920, 1080)
+            sensitive not AnimationPlayer.loop
+            action [Show("repeat_anims_text"), Call('anim_once', AnimationPlayer.get().anim_once)]
+
     vbox:
         align (1.0, 0.15)
 
@@ -27,4 +33,13 @@ screen anims(anim):
         imagebutton:
             auto 'gui/repeat_%s.png'
             sensitive not AnimationPlayer.loop
-            action Call('anim_once', AnimationPlayer.get().anim_once)
+            action [Show("repeat_anims_text"), Call('anim_once', AnimationPlayer.get().anim_once)]
+
+
+screen repeat_anims_text():
+    zorder 3
+    hbox:
+        xoffset 20 yalign 0.975
+        text "Repeat" size 42 color "#ffffff"
+        add 'gui/camera_record.png' yalign 0.5 yoffset 3 xoffset 3
+    timer 0.25 action Hide("repeat_anims_text")
