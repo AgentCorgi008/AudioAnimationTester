@@ -1,4 +1,4 @@
-# AudioAnimationTester
+# Tester for Animations(with audio)
 
 Created to simplify testing and debugging of audio-driven animations during game development.
 
